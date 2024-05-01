@@ -6,7 +6,7 @@ if(!localStorage.getItem('firstVisit')) {
     var modal = document.querySelector("#modal");
     modal.style.display = "block";
 
-    var closeButton = document.querySelector(".close")[0];
+    var closeButton = document.querySelector(".close");
 
     closeButton.onclick = function() {
         modal.style.display = "none";

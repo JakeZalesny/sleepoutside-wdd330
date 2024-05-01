@@ -77,7 +77,7 @@ header {
   text-align: center;
 }
 
-.close {
+#modal-content .close {
   color:#aaa; 
   float: right;
   font-size: 28px;
