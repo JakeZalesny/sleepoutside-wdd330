@@ -31,6 +31,8 @@ header {
   padding: 0 10px;
 }
 
+/* Modal */
+
 #modal {
   display: none; /* Hide modal by default */
   position: fixed;
@@ -49,6 +51,30 @@ header {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+}
+
+#modal-content h2 {
+  text-align: center;
+}
+
+#modal-content a button {
+  display: block;
+  background-color: var(--primary-color);
+  color: #303030;
+}
+
+#modal-content a{
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#modal-content a button:hover {
+  background-color: var(--secondary-color);
+  color: white;
+
+}
+#modal-content h4 {
+  text-align: center;
 }
 
 .close {
