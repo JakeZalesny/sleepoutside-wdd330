@@ -1,7 +1,7 @@
 
-if(!localStorage.getItem('firstVisit')) {
+if(!localStorage.getItem("firstVisit")) {
     var firstVisit = new Date().toISOString();
-    localStorage.setItem('firstVisit', firstVisit);
+    localStorage.setItem("firstVisit", firstVisit);
 
     var modal = document.querySelector("#modal");
     modal.style.display = "block";
