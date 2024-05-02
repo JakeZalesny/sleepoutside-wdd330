@@ -52,8 +52,15 @@
       </section>
       <section class = "newsletter">
         <p>Please consider signing up for our newsletter to get regular updates on our products!</p>
-        <a href="newsletter.html"><button type = "button">Sign Up Today!</button></a>
-
+        <form action="/action_page.php">
+          <label for="fname">First name:</label>
+          <input type="text" id="fname" name="fname"><br><br>
+          <label for="lname">Last name:</label>
+          <input type="text" id="lname" name="lname"><br><br>
+          <label for="email">Email Adress:</label>
+          <input type="text" id="email" name="email"><br><br>
+          <input type="submit" value="Sign Up Today!">
+        </form>
       </section>
       <section class="products">
         <h2>Top Products</h2>
