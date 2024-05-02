@@ -137,6 +137,14 @@ button {
   font-family: var(--font-body);
 }
 
+.newsletter input[type="text"]:required {
+  border-color: red;
+}
+
+.newsletter #email {
+  margin-right: 16px;
+}
+
 .newsletter input[type="submit"] {
   background-color: var(--primary-color);
   font-size: medium;
