@@ -172,6 +172,9 @@ button {
 .cart-count {
   position: absolute;
   background-color: var(--primary-color);
+  border-radius: 50%;
+  width: 17px;
+  height: 17px;
   color: black;
   top: 2px;
   right: 2px;
