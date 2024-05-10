@@ -1,4 +1,5 @@
-
+import { renderProduct } from "./dynamicProducts";
+// modal for first visit
 if(!localStorage.getItem("firstVisit")) {
     var firstVisit = new Date().toISOString();
     localStorage.setItem("firstVisit", firstVisit);
@@ -13,3 +14,5 @@ if(!localStorage.getItem("firstVisit")) {
     }
 
 }
+
+// listeners for dynamic products 
