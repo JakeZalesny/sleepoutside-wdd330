@@ -6,7 +6,6 @@ const name = document.querySelector(".product__name");
 const company = document.querySelector(".product__company");
 const title = document.querySelector("title");
 
-const products = await fetch("../json/products.json");
 
 // Will need to add another js file to create event listeners on main index page
 // These will run the function below
