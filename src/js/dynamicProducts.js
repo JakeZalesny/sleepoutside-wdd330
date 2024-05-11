@@ -5,6 +5,7 @@ const image = document.querySelector("#product-image");
 const name = document.querySelector("#product__name");
 const company = document.querySelector(".product__company");
 const title = document.querySelector("title");
+const addToCart = document.querySelector("#addToCart");
 
 
 
@@ -40,6 +41,8 @@ function renderProduct(product) {
     image.src = product.Image;
     image.alt = product.NameWithoutBrand;
     company.textsContent = product.Brand.Name;
+    addToCart.setAttribute("data-id", product.Id);
+    console.log(addToCart)
 
 }
 
