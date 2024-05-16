@@ -46,16 +46,16 @@ function renderProduct(product) {
 const type = populateContent();
 
 switch (type) {
-    case "ajax":
+    case "880RR":
             renderProduct(products[0]);   
         break;
-    case "talus":
+    case "985RF":
         renderProduct(products[1]);   
         break; 
-    case "cedar-ridge":
+    case "344YJ":
         renderProduct(products[5]);
         break;
-    case "alpine":
+    case "985PR":
         renderProduct(products[3]);
         break; 
 }
