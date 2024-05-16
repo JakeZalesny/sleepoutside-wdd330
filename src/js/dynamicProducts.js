@@ -56,10 +56,10 @@ switch (type) {
         renderProduct(products[1]);   
         break; 
     case "344YJ":
-        renderProduct(products[5]);
+        renderProduct(products[3]);
         break;
     case "985PR":
-        renderProduct(products[3]);
+        renderProduct(products[2]);
         break; 
 }
 
