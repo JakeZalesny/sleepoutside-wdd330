@@ -1,3 +1,5 @@
+import { applyDiscountAlone } from "./applyDiscount.mjs";
+
 const description = document.querySelector(".product__description");
 const color = document.querySelector(".product__color");
 const price = document.querySelector(".product-card__price");
@@ -6,6 +8,7 @@ const name = document.querySelector("#product__name");
 const company = document.querySelector(".product__company");
 const title = document.querySelector("title");
 const addToCart = document.querySelector("#addToCart");
+const discountedPriceLocation = document.querySelector(".product-card__discounted-price");
 
 
 
@@ -32,12 +35,14 @@ function populateContent() {
 }
 
 function renderProduct(product) {
+    const discountedPrice = applyDiscountAlone(product);
     title.innerHTML = `Sleep Outside | ${product.Name}`
     company.textContent = product.Brand.Name;
     name.textContent = product.NameWithoutBrand;
     description.innerHTML = product.DescriptionHtmlSimple;
     color.textContent = `${product.Colors[0].ColorName}`;
     price.textContent = `$${product.FinalPrice}`;
+    discountedPriceLocation.textContent = `Discounted Price: $${discountedPrice}!!`;
     image.src = product.Image;
     image.alt = product.NameWithoutBrand;
     company.textsContent = product.Brand.Name;
