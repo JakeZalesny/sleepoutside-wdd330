@@ -1,6 +1,9 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 import { applyDiscount, getRandomFloat } from "./applyDiscount.mjs";
- // Set to true if discount is applied
+import { renderHeaderFooter } from "./utils.mjs";
+
+renderHeaderFooter();
+// Set to true if discount is applied
 let discountApplied = false;
 
 function renderCartContents() {
@@ -10,10 +13,9 @@ function renderCartContents() {
     const randomIndex = Math.floor(Math.random() * cartItems.length);
     // Apply the discount to the random item
     applyDiscount(cartItems[randomIndex]);
-    
+
     // Update local storage with the modified cart items
     setLocalStorage("so-cart", cartItems);
-
   }
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
@@ -37,9 +39,9 @@ function cartItemTemplate(item) {
   <p class="cart-card__discountedPrice">$${item.ListPrice}</p>
   <p class="cart-card__price">$${item.FinalPrice}</p>
 </li>`;
-  return newItem;
+    return newItem;
   } else {
-  let newItem = `<li class="cart-card divider">
+    let newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
       src="${item.Image}"
@@ -55,7 +57,7 @@ function cartItemTemplate(item) {
   <p class="cart-card__price">$${item.FinalPrice}</p>
 </li>`;
 
-  return newItem;
+    return newItem;
   }
 }
 
@@ -70,9 +72,9 @@ function removeProductFromCart(product) {
 
 renderCartContents();
 
-document.querySelectorAll(".cart-card__remove").forEach(button => {
-  button.addEventListener("click", function(event) {
-      const productId = event.target.getAttribute('data-id');
-      removeProductFromCart(productId);
+document.querySelectorAll(".cart-card__remove").forEach((button) => {
+  button.addEventListener("click", function (event) {
+    const productId = event.target.getAttribute("data-id");
+    removeProductFromCart(productId);
   });
 });

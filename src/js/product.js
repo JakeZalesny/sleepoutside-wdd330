@@ -1,5 +1,8 @@
 import { setLocalStorage, getLocalStorage } from "./utils.mjs";
 import { findProductById } from "./productData.mjs";
+import { renderHeaderFooter } from "./utils.mjs";
+
+renderHeaderFooter();
 
 function addProductToCart(product) {
   // add product to cart

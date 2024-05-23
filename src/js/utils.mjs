@@ -1,3 +1,6 @@
+import header from "../js/components/MainHeader.svelte";
+import footer from "../js/components/MainFooter.svelte";
+
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
@@ -20,4 +23,13 @@ export function setClick(selector, callback) {
     callback();
   });
   qs(selector).addEventListener("click", callback);
+}
+
+export function renderHeaderFooter() {
+  new header({
+    target: document.querySelector(".main-header"),
+  });
+  new footer({
+    target: document.querySelector(".footer"),
+  });
 }
