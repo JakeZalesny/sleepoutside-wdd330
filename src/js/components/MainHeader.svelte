@@ -1,3 +1,8 @@
+<script>
+  import { cartCount } from "../stores.mjs";
+  
+</script>
+
 <div class="logo">
   <img src="/images/noun_Tent_2517.svg" alt="tent image for logo" />
   <a href="index.html"> Sleep<span class="highlight">Outside</span></a>
@@ -28,5 +33,5 @@
           <text x="0" y="120" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text> -->
     </svg>
    </a>
-      <span class="cart-count"></span>
+      <span class="cart-count">{$cartCount}</span>
 </div>
