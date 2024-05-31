@@ -3,7 +3,7 @@
 </script>
 
 <section>
- <a href="product_pages/index.html?type={product.Id}">
+ <a href="../product_pages/index.html?type={product.Id}">
         <img src="{product.Image}" alt="image of {product.Name}"/>
         <h3 class="card__brand">{product.Brand.Name}</h3>
         <h2 class="card__name">{product.NameWithoutBrand}</h2>

@@ -43,6 +43,11 @@ header {
   width: 40%;
   display: block;
   margin: auto;
+  margin-top: 20px;
+}
+
+.category-text {
+  text-align: center;
 }
 
 /* Modal */
