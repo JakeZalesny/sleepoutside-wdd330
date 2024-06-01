@@ -9,7 +9,7 @@ export let category;
 
 let promise = getData(category);
 
-// console.log(promise);
+console.log(promise);
 </script>
 
 <h2>Top products: {category}</h2>

@@ -1,27 +1,20 @@
 import { setLocalStorage, getLocalStorage } from "./utils.mjs";
 import { findProductById } from "./productData.mjs";
 import { renderHeaderFooter } from "./utils.mjs";
+import { productDetails } from "./productDetails.mjs";
 
 renderHeaderFooter();
 
-function addProductToCart(product) {
-  // add product to cart
-  if (getLocalStorage("so-cart")) {
-    const cart = getLocalStorage("so-cart");
-    cart.push(product);
-    setLocalStorage("so-cart", cart);
-  } else {
-    setLocalStorage("so-cart", [product]);
-  }
-}
-
 // add to cart button event handler
-async function addToCartHandler(e) {
-  const product = await findProductById(e.target.dataset.id);
-  addProductToCart(product);
-}
 
-// add listener to Add to Cart button
-document
-  .getElementById("addToCart")
-  .addEventListener("click", addToCartHandler);
+var currentUrl = window.location.href;
+
+// Parse the URL
+var url = new URL(currentUrl);
+
+// Get the query parameters
+var params = new URLSearchParams(url.search);
+
+// Extract the value of the 'type' parameter
+var typeValue = params.get('type');
+productDetails(typeValue, ".product-detail")

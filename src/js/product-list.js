@@ -1,4 +1,7 @@
 import ProductList from "../js/components/ProductList.svelte";
+import { renderHeaderFooter } from "./utils.mjs";
+
+renderHeaderFooter();
 
 var currentUrl = window.location.href;
 
