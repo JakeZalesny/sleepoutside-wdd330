@@ -6,6 +6,7 @@ let product = {};
 
 export async function productDetails(id, selector) {
     product = await findProductById(id);
+    console.log(product)
 
     const el = document.querySelector(selector);
     el.insertAdjacentHTML("afterbegin", renderProductDetails(product));
@@ -26,7 +27,7 @@ function addToCart() {
 
   async function addToCartHandler(e) {
     const product = await findProductById(e.target.dataset.id);
-    addProductToCart(product);
+    addToCart(product);
   }
 
   function renderProductDetails(product) {
