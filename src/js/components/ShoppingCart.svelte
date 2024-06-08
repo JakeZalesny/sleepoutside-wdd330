@@ -36,3 +36,4 @@ document.querySelectorAll(".cart-card__remove").forEach((button) => {
     </li>
     {/each}        
 </ul>
+
