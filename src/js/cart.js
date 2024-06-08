@@ -1,4 +1,3 @@
-import { applyDiscount, getRandomFloat } from "./applyDiscount.mjs";
 import ShoppingCart  from "./components/ShoppingCart.svelte";
 
 

@@ -1,5 +1,3 @@
-import { setLocalStorage, getLocalStorage } from "./utils.mjs";
-import { findProductById } from "./externalServices.mjs";
 import { renderHeaderFooter } from "./utils.mjs";
 import { productDetails } from "./productDetails.mjs";
 
