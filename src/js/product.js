@@ -16,5 +16,5 @@ var url = new URL(currentUrl);
 var params = new URLSearchParams(url.search);
 
 // Extract the value of the 'type' parameter
-var typeValue = params.get('type');
+var typeValue = params.get("type");
 productDetails(typeValue, ".product-detail")
