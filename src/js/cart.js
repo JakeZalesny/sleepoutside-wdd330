@@ -1,5 +1,5 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
-import { applyDiscount, getRandomFloat } from "./applyDiscount.mjs";
+import { applyDiscount } from "./applyDiscount.mjs";
 import { renderHeaderFooter } from "./utils.mjs";
 
 renderHeaderFooter();
