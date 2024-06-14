@@ -12,10 +12,21 @@ const discountedPriceLocation = document.querySelector(
   ".product-card__discounted-price"
 );
 
-const response = await fetch("../json/tents.json");
-const products = await response.json();
+let products;
+
+async function fetchProducts() {
+  const response = await fetch("../json/tents.json");
+  products = await response.json();
+}
 // Will need to add another js file to create event listeners on main index page
 // These will run the function below
+
+fetchProducts().then(() => {
+  // Assuming 'products' is an array of product objects
+  products.forEach((product) => {
+    renderProduct(product);
+  });
+});
 
 function getUrlParams() {
   var searchParams = new URLSearchParams(window.location.search);
@@ -29,8 +40,8 @@ function getUrlParams() {
 
 function populateContent() {
   var params = getUrlParams();
-  var type = params["type"];
-  return type;
+  var contentType = params["type"];
+  return contentType;
 }
 
 function renderProduct(product) {
@@ -50,7 +61,6 @@ function renderProduct(product) {
   image.alt = product.NameWithoutBrand;
   company.textsContent = product.Brand.Name;
   addToCart.setAttribute("data-id", product.Id);
-  console.log(addToCart);
 }
 
 const type = populateContent();
