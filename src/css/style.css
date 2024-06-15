@@ -31,6 +31,25 @@ header {
   padding: 0 10px;
 }
 
+/* Category Styles */
+
+.category-grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 0.2fr 0.2fr 0.2fr 0.2fr;
+}
+
+.category-img {
+  width: 40%;
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.category-text {
+  text-align: center;
+}
+
 /* Modal */
 
 #modal {

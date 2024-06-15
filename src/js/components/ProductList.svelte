@@ -1,6 +1,6 @@
 
 <script>
-import { getData } from "../productData.mjs";
+import { getData } from "../externalServices.mjs";
 import ProductSummary from "./ProductSummary.svelte"
 import { getLocalStorage, setLocalStorage} from "../utils.mjs";
 // import { applyDiscount } from "../discounts.mjs";
@@ -8,6 +8,7 @@ import { getLocalStorage, setLocalStorage} from "../utils.mjs";
 export let category;
 
 let promise = getData(category);
+
 
 </script>
 

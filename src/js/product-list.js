@@ -1,9 +1,7 @@
+import ProductList from "../js/components/ProductList.svelte";
 import { renderHeaderFooter } from "./utils.mjs";
-import { productDetails } from "./productDetails.mjs";
 
 renderHeaderFooter();
-
-// add to cart button event handler
 
 var currentUrl = window.location.href;
 
@@ -15,4 +13,10 @@ var params = new URLSearchParams(url.search);
 
 // Extract the value of the 'type' parameter
 var typeValue = params.get("type");
-productDetails(typeValue, ".product-detail")
+
+new ProductList({
+    target: document.querySelector(".products"),
+    props: { category: typeValue },
+  });
+
+  
