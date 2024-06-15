@@ -1,5 +1,5 @@
 <script>
-    import { getLocalStorage } from "../utils.mjs";
+    import { getLocalStorage, formDatatoJSON } from "../utils.mjs";
     import { checkout } from "../externalServices.mjs";
 
     export let key = ""; 
@@ -9,6 +9,39 @@
     let count = 0;
     let orderTotal = 0;
     let cartItems = []
+    let date = '';
+    let cardNumber = '';
+    let securityCode = '';
+    let dateError = '';
+    let cardError = '';
+    let secError = '';
+
+    function validateDate() {
+        const regex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+        if (regex.test(date) || date === '') {
+        dateError = '';
+        } else {
+        dateError = 'Invalid date format. Please use MM/YY.';
+        }
+    }
+
+    function validateCardNumber() {
+        const regex = /^\d{4}-\d{4}-\d{4}-\d{4}$/;
+        if (regex.test(cardNumber.valueOf()) || cardNumber === '') {
+        cardError = '';
+        } else {
+        cardError = 'Invalid card number format. Please use XXXX-XXXX-XXXX-XXXX';
+        }
+    }
+
+    function validateSecurityCode() {
+        const regex = /^\d{3}$/;
+        if (regex.test(securityCode.valueOf()) || securityCode === '') {
+        secError = '';
+        } else {
+        secError = 'Invalid security code format. Please use XXX.';
+        }
+    }
 
     const init = () => {
         cartItems = getLocalStorage("so-cart");
@@ -42,7 +75,7 @@
     }
 
     const submit = async () => {
-        const json = formDataToJSON(this);
+        const json = formDatatoJSON(this);
         json.orderDate = new Date();
         json.orderTotal = orderTotal;
         json.tax = tax;
@@ -62,6 +95,15 @@
     init();
 
 </script>
+{#if dateError}
+<p class="error">{dateError}</p> 
+{/if}
+{#if cardError}
+<p class="error">{cardError}</p> 
+{/if}
+{#if secError}
+<p class="error">{secError}</p> 
+{/if}
 <form name="checkout" on:submit|preventDefault={submit}>
     <fieldset>
         <legend>Personal Information</legend>
@@ -84,26 +126,27 @@
     </fieldset>
     <fieldset>
         <legend>Payment Information</legend>
-    <input type="text" id="zip">
         <label for="cardNumber">Card Number: </label>
         <input type="text" id="cardNumber"
-        maxlength="16"
+        maxlength="19"
         minlength="16"
         required
-        placeholder="XXXX-XXXX-XXXX-XXXX">
+        placeholder="XXXX-XXXX-XXXX-XXXX"
+        bind:value={cardNumber} on:input={validateCardNumber}>
         <label for="expiration">Expiration Date: </label>
         <input type="text" id="expiration" 
         maxlength="5"
         minlength="5"
         placeholder="MM/YY"
-        required>
+        required
+        bind:value={date} on:input={validateDate}>
         <label for="code">Security Code: </label>
         <input type="text" id="code"
         maxlength="3"
         minlength="3"
         placeholder="XXX"
-        required>
-        <input type="submit" value="Checkout" />
+        required
+        bind:value={securityCode} on:input={validateSecurityCode}>
     </fieldset>
     <fieldset class="checkout-summary">
         <legend>Order Summary: </legend>

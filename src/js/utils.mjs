@@ -25,6 +25,15 @@ export function setClick(selector, callback) {
   qs(selector).addEventListener("click", callback);
 }
 
+export function formDatatoJSON(formElement) {
+  const formData = new FormData(formElement);
+  const object = {};
+  formData.forEach((value, key) => (object[key] = value));
+
+  return object; 
+}
+
+
 export function renderHeaderFooter() {
   new MainHeader({
     target: document.querySelector("#main-header"),
