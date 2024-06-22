@@ -34,6 +34,7 @@ export async function checkout(payload) {
 }
 
 export async function loginRequest(creds) {
+  console.log(creds);
   const options = {
     method: "POST",
     headers: {
@@ -41,9 +42,9 @@ export async function loginRequest(creds) {
     },
     body: JSON.stringify(creds),
   };
-  const response = await fetch(baseURL + "login/", options);
-  const data = await convertToJson(response);
-  return data;
+  const response = await fetch(baseURL + "login/", options).then(convertToJson);
+  console.log(response);
+  return response.accessToken;
 }
 
 export async function orders(token) {
@@ -53,7 +54,6 @@ export async function orders(token) {
       Authorization: `Bearer ${token}`,
     },
   };
-  const response = await fetch(baseURL + "orders", options);
-  const data = await convertToJson(response);
-  return data;
+  const response = await fetch(baseURL + "orders", options).then(convertToJson);
+  return response;
 }

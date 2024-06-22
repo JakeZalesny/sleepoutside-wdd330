@@ -33,3 +33,9 @@ export function renderHeaderFooter() {
     target: document.querySelector("#main-footer"),
   });
 }
+
+export function getParam(param) {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  return urlParams.get(param);
+}
